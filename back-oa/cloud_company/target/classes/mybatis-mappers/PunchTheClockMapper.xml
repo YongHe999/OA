@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.company.mapper.PunchTheClockMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.seu.util.entity.PunchTheClock">
+        <id column="id" property="id" />
+        <result column="userid" property="userid" />
+        <result column="time" property="time" />
+        <result column="ispunch" property="ispunch" />
+    </resultMap>
+    <sql id="condition">
+        <if test="params.userid != null and params.userid != ''">
+            and t.userid = #{params.userid}
+        </if>
+        <if test="params.btime != null">
+            and <![CDATA[t.ontime >= #{params.btime,jdbcType=DATE}]]>
+        </if>
+        <if test="params.etime != null">
+            and <![CDATA[t.ontime < #{params.etime,jdbcType=DATE}]]>
+        </if>
+            and t.onpunch = "true"
+            and t.offpunch = "true"
+    </sql>
+
+    <select id="ClockComplete" resultType="java.lang.Integer">
+        select COUNT(*) FROM punch_the_clock t
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+</mapper>

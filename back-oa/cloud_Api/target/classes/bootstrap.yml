@@ -1,0 +1,65 @@
+server:
+  port: 8888
+#  servlet:
+#    context-path: /myapp
+
+spring:
+  application:
+    name: jie-gateway
+  cloud:
+    nacos:
+      discovery:
+        enabled: true     # 开启注册中心功能
+        server-addr: localhost:8848
+      #        group: hong      # 服务分组名
+      config:
+        enabled: true     # 开启配置中心功能
+        refresh-enabled: true  # 运行自动刷新配置
+        server-addr: localhost:8848
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            #这里有个allowCredentials: true这个东西是设置允许访问携带cookie的，这点一定要和前端对应！
+            allowCredentials: true
+            #可以填写多个域名用","隔开 例如："http://www.xiaolc.cn,https://spring.io"  "*"代表允许所有
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      discovery:
+        locator:
+          enabled: true # 启用自动根据服务ID生成路由
+          lower-case-service-id: true # 设置路由的路径为小写的服务ID
+      routes:
+        - id: cloud-rbac
+#          uri: http://localhost:8585
+          uri: lb://cloud-rbac
+          order: 6
+          # 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
+          predicates:
+            - Path=/seu/**
+             # 说明：访问Path时服务前缀自动改为uri，order设置优先级
+        - id: cloud-activiti
+#          uri: http://localhost:8584
+          uri: lb://cloud-activiti
+          order: 1
+          predicates:
+            - Path=/**/act/** #断言 路径匹配的进行路由
+        - id: cloud-company
+            #          uri: http://localhost:8555
+          uri: lb://cloud-company
+          order: 2
+          predicates:
+            - Path=/**/company/** #断言 路径匹配的进行路由
+        - id: cloud-chat
+          #          uri: http://localhost:8555
+          uri: lb://cloud-chat
+          order: 3
+          predicates:
+            - Path=/**/chat/** #断言 路径匹配的进行路由
+        - id: cloud-email
+          #          uri: http://localhost:8555
+          uri: lb://cloud-email
+          order: 4
+          predicates:
+            - Path=/**/email/** #断言 路径匹配的进行路由

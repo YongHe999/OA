@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        enabled: true     # 开启注册中心功能
+        server-addr: localhost:8848
+      #        group: hong      # 服务分组名
+      config:
+        enabled: true     # 开启配置中心功能
+        refresh-enabled: true  # 运行自动刷新配置
+        server-addr: localhost:8848
+  application:
+    name: cloud-activiti

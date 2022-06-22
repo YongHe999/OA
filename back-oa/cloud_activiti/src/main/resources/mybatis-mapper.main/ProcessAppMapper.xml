@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.activitis.mapper.ProcessAppMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.seu.util.entity.ProcessApp">
+        <id column="id" property="id" />
+        <result column="definition_id" property="definitionId" />
+        <result column="form_id" property="formId" />
+        <result column="definition_name" property="definitionName" />
+        <result column="form_name" property="formName" />
+        <result column="definition_key" property="definitionKey" />
+        <result column="update_time" property="updateTime" />
+        <result column="create_time" property="createTime" />
+        <result column="version" property="version" />
+    </resultMap>
+
+</mapper>

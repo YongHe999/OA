@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.activitis.mapper.ProcessBusinessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.seu.util.entity.ProcessBusiness">
+        <id column="id" property="id" />
+        <result column="user" property="user" />
+        <result column="formdata" property="formdata" />
+        <result column="start" property="start" />
+        <result column="definitionid" property="definitionid" />
+        <result column="update_time" property="updateTime" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+<!--    &lt;!&ndash; 插入数据:返回记录主键id值 &ndash;&gt;-->
+<!--    <insert id="saveGetId" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">-->
+<!--		insert into process_business (id,user,formdata,start,definitionid,updateTime,createTime) values (#{id},#{user},#{formdata},#{start},#{definitionid},#{updateTime},#{createTime})-->
+<!--    </insert>-->
+</mapper>

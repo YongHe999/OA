@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.main.mapper.UserMapper">
+
+    <sql id="condition">
+        <if test="params.username != null and params.username != ''">
+            and t.username like concat('%',#{params.username},'%')
+        </if>
+        <if test="params.nickname != null and params.nickname != ''">
+            and t.nickname = #{params.nickname}
+        </if>
+        <if test="params.status != null and params.status != ''">
+            and t.status = #{params.status}
+        </if>
+        <if test="params.type != null and params.type != ''">
+            and t.type = #{params.type}
+        </if>
+    </sql>
+
+    <select id="pageListUsers" resultType="com.seu.util.entity.vo.UserVo">
+        select t.id, t.username, t.password, t.nickname, t.phone, t.type,
+        t.telephone, t.email, t.birthday, t.sex, t.status, t.createtime, t.updatetime,
+        r.id roleId, r.name roleName, r.rolecode roleCode, dep.departmentid departmentId
+        from sys_user t
+        left join sys_user_role sru
+        on t.id=sru.userId
+        left join sys_role r
+        on sru.roleId=r.id
+        left join sys_user_department dep
+        on dep.userid = t.id
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+</mapper>

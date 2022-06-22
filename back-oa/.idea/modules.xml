@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud_Api/cloud_Api.iml" filepath="$PROJECT_DIR$/cloud_Api/cloud_Api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_activiti/cloud_activiti.iml" filepath="$PROJECT_DIR$/cloud_activiti/cloud_activiti.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_chat/cloud_chat.iml" filepath="$PROJECT_DIR$/cloud_chat/cloud_chat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_company/cloud_company.iml" filepath="$PROJECT_DIR$/cloud_company/cloud_company.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_email/cloud_email.iml" filepath="$PROJECT_DIR$/cloud_email/cloud_email.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cloud_oa-master.iml" filepath="$PROJECT_DIR$/.idea/cloud_oa-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_rbac/cloud_rbac.iml" filepath="$PROJECT_DIR$/cloud_rbac/cloud_rbac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud_util/cloud_util.iml" filepath="$PROJECT_DIR$/cloud_util/cloud_util.iml" />
+    </modules>
+  </component>
+</project>

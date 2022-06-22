@@ -1,0 +1,26 @@
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 957974737@qq.com
+#    password: cipjdjrvcabxbcba
+    password: knzgjbiyboymbcej
+    port: 587
+    default-encoding: UTF-8
+    properties:
+      mail:
+        debug: true
+  #热部署
+  devtools:
+    restart:
+      enabled: true
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_oa?useUnicode=true&zeroDateTimeBehavior=CONVERT_TO_NULL&characterEncoding=utf8
+    username: root
+    password: 123456
+server:
+  port: 8866
+  servlet:
+    context-path: /seu/email
+debug: true
