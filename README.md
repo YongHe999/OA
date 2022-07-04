@@ -7,3 +7,5 @@
 使用Spring Security+Jwt实现用户登录身份验证，Redis白名单处理Token失效问题。
 
 使用RBAC权限管理模型，支持权限树动态变化，方便权限控制与管理。
+
+后端使用Nacos作为配置中心，Gateway实现服务网关，项目底层使用MySQL实现数据存取，对于热点数据采用Redis缓存
